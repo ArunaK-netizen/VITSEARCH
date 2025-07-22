@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIT Chennai | Faculty Directory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container flex justify-between items-center py-8">
+      <h1 class="logo">VIT&nbsp;Chennai</h1>
+      <button class="btn btn--secondary btn--sm menu-toggle" aria-label="Toggle Navigation">☰</button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list flex gap-16">
+          <li><a href="#home" data-section="home" class="nav__link">Home</a></li>
+          <li><a href="#directory" data-section="directory" class="nav__link">Directory</a></li>
+          <li><a href="#departments" data-section="departments" class="nav__link">Departments</a></li>
+          <li><a href="#campus" data-section="campus" class="nav__link">Campus</a></li>
+          <li><a href="#contact" data-section="contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Home Section -->
+    <section id="home" class="section--active">
+      <div class="container py-16">
+        <h2 class="mb-16">Welcome to VIT Chennai Faculty Directory</h2>
+        <div class="grid stats-grid mb-16">
+          <div class="card">
+            <div class="card__body">
+              <h3>Total Faculty</h3>
+              <p id="total-faculty" class="stat-value"></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__body">
+              <h3>Schools</h3>
+              <p id="total-schools" class="stat-value"></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__body">
+              <h3>Campus Area (Acres)</h3>
+              <p id="campus-area" class="stat-value"></p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-16 mb-8">Schools at a Glance</h3>
+        <div id="school-cards" class="grid school-grid"></div>
+      </div>
+    </section>
+
+    <!-- Directory Section -->
+    <section id="directory" class="hidden">
+      <div class="container py-16 directory-container flex gap-16">
+        <aside class="directory-filters">
+          <h3 class="mb-8">Search & Filters</h3>
+          <div class="form-group">
+            <label for="search-input" class="form-label">Search</label>
+            <input type="text" id="search-input" placeholder="Search faculty..." class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="school-filter" class="form-label">School</label>
+            <select id="school-filter" class="form-control">
+              <option value="">All Schools</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="designation-filter" class="form-label">Designation</label>
+            <select id="designation-filter" class="form-control">
+              <option value="">All Designations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="department-filter" class="form-label">Department</label>
+            <select id="department-filter" class="form-control">
+              <option value="">All Departments</option>
+            </select>
+          </div>
+          <div class="flex gap-8">
+            <button id="clear-btn" class="btn btn--secondary btn--sm">Clear</button>
+            <button id="export-btn" class="btn btn--primary btn--sm">Export</button>
+          </div>
+        </aside>
+
+        <div class="directory-results flex flex-col grow">
+          <div id="loading" class="hidden status status--info mb-8">Loading...</div>
+          <div id="faculty-list" class="grid faculty-grid"></div>
+          <div id="pagination" class="flex gap-8 justify-center mt-16"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="hidden">
+      <div class="container py-16">
+        <h2 class="mb-16">Departments &amp; Schools</h2>
+        <div id="departments-list" class="grid dept-grid"></div>
+      </div>
+    </section>
+
+    <!-- Campus Section -->
+    <section id="campus" class="hidden">
+      <div class="container py-16">
+        <h2 class="mb-16">Campus Buildings</h2>
+        <div id="blocks-list" class="grid block-grid"></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="hidden">
+      <div class="container py-16">
+        <h2 class="mb-16">Contact Us</h2>
+        <div class="card">
+          <div class="card__body">
+            <p><strong>Address:</strong> <span id="campus-location"></span></p>
+            <p><strong>Phone:</strong> <span id="campus-phone"></span></p>
+            <p><strong>Fax:</strong> <span id="campus-fax"></span></p>
+            <p><strong>Email:</strong> <a href="#" id="campus-email"></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Faculty Detail Modal -->
+  <!-- <div id="faculty-modal" class="modal hidden" aria-hidden="true" role="dialog">
+    <div class="modal__overlay" id="modal-overlay"></div>
+    <div class="modal__content card" role="document">
+      <button class="modal__close btn btn--secondary btn--sm" id="modal-close" aria-label="Close">✕</button>
+      <div class="card__body" id="modal-body"></div>
+    </div>
+  </div> -->
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
